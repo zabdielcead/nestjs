@@ -10,6 +10,8 @@ import { TokenDto } from '../auth/dto/TokenDto';
 import { AuthService } from '../auth/auth.service';
 import { LoginDTO } from 'src/common/dtoUtil/loginDto';
 import { UsuarioDto } from '../prueba/dto/usuarioDto';
+// import { LoginDTO } from 'src/common/dtoUtil/loginDto';
+// import { UsuarioDto } from '../prueba/dto/usuarioDto';
 
 
 
@@ -219,16 +221,16 @@ export class PruebaMysqlService {
 
 
 
-    //  async login(data: UsuarioDto): Promise<LoginDTO> {
+     async login(data: UsuarioDto): Promise<LoginDTO> {
 
 
-    //     const user = await this.authService.login(data.correo);
+        const user = await this.authService.login(data.correo, data.password);
 
         
         
-    //     return user;
+        return user;
 
-    //  }
+     }
 
 
 

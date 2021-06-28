@@ -7,8 +7,8 @@ export class LoginDTO {
     //@IsString()
     // @IsDefined()
     // @Expose({ name: 'myheader1' })        // required as headers are case insensitive
-    // @IsNotEmpty()
-    // status: string;
+     @IsNotEmpty()
+     status: string;
     
 
 
@@ -16,26 +16,26 @@ export class LoginDTO {
     
     // // @IsDefined()
     // // @Expose({ name: 'myheader2' })
-    // @IsNotEmpty()
-    // msg: string;
+    @IsNotEmpty()
+    msg: string;
 
 
-    // userAuth:Usuario;
+    userAuth:Usuario;
 
 
-    // @IsNotEmpty()
-    // token:string
-
-
-
+    @IsNotEmpty()
+    token:string
 
 
 
 
-    // constructor(status:string, msg:string, userAuth: Usuario, token:string){
-    //     this.status = status,
-    //     this.msg = msg
-    //     this.userAuth = userAuth,
-    //     this.token = token
-    // }
+
+
+
+    constructor(status:string, msg:string, userAuth: Usuario, token:string){
+        this.status = status,
+        this.msg = msg
+        this.userAuth = userAuth,
+        this.token = token
+    }
 }

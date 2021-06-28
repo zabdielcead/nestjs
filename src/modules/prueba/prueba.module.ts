@@ -17,6 +17,8 @@ import { Usuario, UsuarioSchema } from 'src/schema/usuario.schema';
                                           }
                                         ]),
         ],
+
+        
 })
 export class PruebaModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

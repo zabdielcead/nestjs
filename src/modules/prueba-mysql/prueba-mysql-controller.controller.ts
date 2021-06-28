@@ -3,8 +3,10 @@ import { PruebaMysqlService } from './prueba-mysql.service';
 import { CursoDto } from './dto/cursoDto';
 import { ResponseDto } from './dto/responseDto';
 import { TokenDto } from '../auth/dto/TokenDto';
-import { UsuarioDto } from '../prueba/dto/usuarioDto';
 import { LoginDTO } from 'src/common/dtoUtil/loginDto';
+import { UsuarioDto } from '../prueba/dto/usuarioDto';
+// import { UsuarioDto } from '../prueba/dto/usuarioDto';
+// import { LoginDTO } from 'src/common/dtoUtil/loginDto';
 
 @Controller('prueba-mysql-controller')
 export class PruebaMysqlControllerController {
@@ -40,10 +42,10 @@ export class PruebaMysqlControllerController {
 
 
 
-    // @Post("/login")
-    // public async login(@Body() data: UsuarioDto): Promise<LoginDTO>{
-    //     return await this.pruebemysql.login(data);
-    // }
+    @Post("/login")
+    public async login(@Body() data: UsuarioDto): Promise<LoginDTO>{
+        return await this.pruebemysql.login(data);
+    }
 
 
 
