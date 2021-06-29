@@ -49,6 +49,13 @@ export class PruebaMysqlControllerController {
 
 
 
+    @Post("/loginDos")
+    public async loginDos(@Body() data: UsuarioDto): Promise<LoginDTO>{
+        return await this.pruebemysql.loginDos(data);
+    }
+
+
+
 
 
 

@@ -5,11 +5,15 @@ import { PruebaMysqlService } from './prueba-mysql.service';
 import { AuthService } from '../auth/auth.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Usuario, UsuarioSchema } from '../../schema/usuario.schema';
+import { AuthnestService } from '../auth/authnest.service';
+import { JwtModule } from '@nestjs/jwt';
+import { SECRETORPRIVATEKEY } from 'src/environments';
 @Module({
   controllers: [PruebaMysqlControllerController],
   providers: [
       PruebaMysqlService,
-      AuthService
+      AuthService,
+      AuthnestService
     ],
     imports: [
       MongooseModule.forFeature([
@@ -19,6 +23,10 @@ import { Usuario, UsuarioSchema } from '../../schema/usuario.schema';
                         
                                     }
                                   ]),
+                                  JwtModule.register({
+                                    secret: SECRETORPRIVATEKEY,
+                                    signOptions: { expiresIn: '4h' },
+                                  }),
       ],
 
 })

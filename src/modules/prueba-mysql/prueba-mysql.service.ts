@@ -10,6 +10,7 @@ import { TokenDto } from '../auth/dto/TokenDto';
 import { AuthService } from '../auth/auth.service';
 import { LoginDTO } from 'src/common/dtoUtil/loginDto';
 import { UsuarioDto } from '../prueba/dto/usuarioDto';
+import { AuthnestService } from '../auth/authnest.service';
 // import { LoginDTO } from 'src/common/dtoUtil/loginDto';
 // import { UsuarioDto } from '../prueba/dto/usuarioDto';
 
@@ -21,7 +22,7 @@ export class PruebaMysqlService {
 
    
 
-    constructor(private readonly sequelize:Sequelize, private authService: AuthService){
+    constructor(private readonly sequelize:Sequelize, private authService: AuthService, private authnestService:AuthnestService){
 
     }
 
@@ -231,6 +232,21 @@ export class PruebaMysqlService {
         return user;
 
      }
+
+
+     async loginDos(data: UsuarioDto): Promise<LoginDTO> {
+
+
+        const user = await this.authnestService.login(data.correo, data.password);
+
+        
+        
+        return user;
+
+     }
+
+
+
 
 
 

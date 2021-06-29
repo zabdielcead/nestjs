@@ -2,9 +2,13 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthService } from './auth.service';
 import { Usuario, UsuarioSchema } from '../../schema/usuario.schema';
+import { AuthnestService } from './authnest.service';
+import { SECRETORPRIVATEKEY } from 'src/environments';
+import { JwtModule } from '@nestjs/jwt';
 @Module({
   providers: [
-      AuthService
+      AuthService,
+      AuthnestService
     ],
     imports: [
       MongooseModule.forFeature([
@@ -14,7 +18,16 @@ import { Usuario, UsuarioSchema } from '../../schema/usuario.schema';
                         
                                     }
                                   ]),
+                                  JwtModule.register({
+                                    secret: SECRETORPRIVATEKEY,
+                                    signOptions: { expiresIn: '4h' },
+                                  }),
+
+
       ],
+    exports:[
+      JwtModule
+    ]
 })
 export class AuthModule {
 
