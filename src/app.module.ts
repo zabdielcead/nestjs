@@ -16,6 +16,8 @@ PASSMYSQL,
 
 } from './environments';
 import { AuthModule } from './modules/auth/auth.module';
+import { AuthDosModule } from './modules/auth-dos/auth-dos.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -31,7 +33,9 @@ import { AuthModule } from './modules/auth/auth.module';
                 models: [],
               }),
               PruebaMysqlModule,
-              AuthModule
+              AuthModule,
+              AuthDosModule,
+              UsersModule
             ],
   controllers: [AppController],
   providers: [AppService],
