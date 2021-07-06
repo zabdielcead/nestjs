@@ -4,12 +4,19 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { SECRETORPRIVATEKEY } from 'src/environments';
 import { Usuario, UsuarioSchema } from 'src/schema/usuario.schema';
 import { AuthdosService } from './authdos.service';
+import { PassportModule } from '@nestjs/passport';
+
+
 
 
 @Global()
 @Module({
-  providers: [AuthdosService],
+  providers: [
+    AuthdosService,
+    
+  ],
   imports: [
+    PassportModule,
     MongooseModule.forFeature([
                                   { 
                                     name: Usuario.name, 
@@ -25,8 +32,7 @@ import { AuthdosService } from './authdos.service';
 
     ],
   exports:[
-    JwtModule,
-    AuthdosService
+    AuthdosService,
   ]
 })
 export class AuthDosModule {}

@@ -4,6 +4,10 @@ import { Request } from 'express';
 
 @Injectable()
 export class InterceptorHeaderInterceptor implements NestInterceptor {
+  
+  
+  
+
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
 
     const ctx = context.switchToHttp();
